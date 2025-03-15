@@ -62,7 +62,7 @@ const featureList: FeatureProps[] = [
     },
 ];
 
-export const Navbar = () => {
+const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false);
     return (
         <header className="sticky top-5 z-40 mx-auto flex w-[90%] items-center justify-between rounded-2xl border border-secondary bg-card bg-opacity-15 p-2 shadow-inner md:w-[70%] lg:w-[75%] lg:max-w-screen-xl">
@@ -159,3 +159,5 @@ export const Navbar = () => {
         </header>
     );
 };
+
+export default Navbar;

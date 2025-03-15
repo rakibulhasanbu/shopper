@@ -14,7 +14,7 @@ import { ServicesSection } from "@/features/home/services";
 import { SponsorsSection } from "@/features/home/SponsorsSection";
 import { TeamSection } from "@/features/home/team";
 import { TestimonialSection } from "@/features/home/testimonial";
-import { Navbar } from "@/features/shared/navbar";
+import Navbar from "@/features/shared/navbar";
 
 const Home = async () => {
     const shops = await getShops();
