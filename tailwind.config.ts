@@ -10,6 +10,13 @@ export default {
         "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
+        container: {
+            center: true,
+            padding: "1rem",
+            screens: {
+                "2xl": "1400px",
+            },
+        },
         extend: {
             colors: {
                 white: "hsl(var(--white))",
@@ -55,9 +62,54 @@ export default {
                 },
             },
             borderRadius: {
+                xl: "calc(var(--radius) + 4px)",
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",
                 sm: "calc(var(--radius) - 4px)",
+            },
+            fontFamily: {
+                inter: ["var(--font-inter)", "sans-serif"],
+                siliguri: ["var(--font-siliguri)", "sans-serif"],
+            },
+            keyframes: {
+                "accordion-down": {
+                    from: {
+                        height: "0px",
+                    },
+                    to: {
+                        height: "var(--radix-accordion-content-height)",
+                    },
+                },
+                "accordion-up": {
+                    from: {
+                        height: "var(--radix-accordion-content-height)",
+                    },
+                    to: {
+                        height: "0px",
+                    },
+                },
+                "collapsible-down": {
+                    from: {
+                        height: "0px",
+                    },
+                    to: {
+                        height: "var(--radix-collapsible-content-height)",
+                    },
+                },
+                "collapsible-up": {
+                    from: {
+                        height: "var(--radix-collapsible-content-height)",
+                    },
+                    to: {
+                        height: "0px",
+                    },
+                },
+            },
+            animation: {
+                "accordion-down": "accordion-down 0.2s ease-out",
+                "accordion-up": "accordion-up 0.2s ease-out",
+                "collapsible-down": "collapsible-down 0.2s ease-in-out",
+                "collapsible-up": "collapsible-up 0.2s ease-in-out",
             },
         },
     },

@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 html {
     scroll-behavior: smooth;
+}
+
+body:lang(en) {
+    font-family: var(--font-inter), sans-serif;
+}
+
+body:lang(bn) {
+    font-family: var(--font-siliguri), sans-serif;
 }
 
 @layer base {
@@ -62,7 +66,7 @@ html {
     }
 
     .light.orange {
-        --primary: 24 95% 53%;
+        --primary: 24.6 95% 53.1%;
         --primary-foreground: 0 0% 100%;
         --secondary: 24 95% 96%;
         --secondary-foreground: 24 95% 53%;
@@ -77,7 +81,8 @@ html {
 
     .dark {
         --white: 0 0% 9%;
-        --background: 220 10% 8%;
+        /* --background: 220 10% 8%; */
+        --background: 20 14.3% 4.1%;
         --foreground: 0 0% 98%;
         --card: 240 10% 3.9%;
         --card-foreground: 0 0% 98%;
@@ -121,8 +126,8 @@ html {
     }
 
     .dark.orange {
-        --primary: 24 95% 53%;
-        --primary-foreground: 0 0% 100%;
+        --primary: 20.5 90.2% 48.2%;
+        --primary-foreground: 60 9.1% 97.8%;
         --secondary: 24 95% 16%;
         --secondary-foreground: 0 0% 98%;
     }
@@ -189,4 +194,12 @@ html {
     .tiptap {
         font-size: 0.875rem;
     }
+}
+
+.shadow-light {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.085);
+}
+
+.shadow-dark {
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.141);
 }

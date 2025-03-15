@@ -1,5 +1,5 @@
 import Footer from "@/features/shared/Footer";
-import Navbar from "@/features/shared/Navbar";
+import ShopNavbar from "@/features/shared/ShopNavbar";
 import { Params } from "@/types";
 
 const Layout = async ({ children, params }: { children: React.ReactNode; params: Params<"shop_slug"> }) => {
@@ -7,7 +7,7 @@ const Layout = async ({ children, params }: { children: React.ReactNode; params:
 
     return (
         <div>
-            <Navbar />
+            <ShopNavbar />
             {children}
             <Footer shop_slug={shop_slug} />
         </div>
