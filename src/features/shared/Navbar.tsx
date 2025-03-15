@@ -68,7 +68,7 @@ const Navbar = () => {
         <header className="sticky top-5 z-40 mx-auto flex w-[90%] items-center justify-between rounded-2xl border border-secondary bg-card bg-opacity-15 p-2 shadow-inner md:w-[70%] lg:w-[75%] lg:max-w-screen-xl">
             <Link href="/" className="flex items-center text-lg font-bold">
                 <ChevronsDown className="mr-2 h-9 w-9 rounded-lg border border-secondary bg-gradient-to-tr from-primary via-primary/70 to-primary text-white" />
-                Shadcn
+                Shopper
             </Link>
             {/* <!-- Mobile --> */}
             <div className="flex items-center lg:hidden">
