@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { ModeToggle } from "@/features/shared/theme-swicher";
+import { ThemeToggle } from "@/features/shared/theme-swicher";
 import { ChevronsDown, Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -109,7 +109,7 @@ const Navbar = () => {
                         <SheetFooter className="flex-col items-start justify-start sm:flex-col">
                             <Separator className="mb-2" />
 
-                            <ModeToggle />
+                            <ThemeToggle />
                         </SheetFooter>
                     </SheetContent>
                 </Sheet>
@@ -154,7 +154,7 @@ const Navbar = () => {
             </NavigationMenu>
 
             <div className="hidden lg:flex">
-                <ModeToggle />
+                <ThemeToggle />
             </div>
         </header>
     );
