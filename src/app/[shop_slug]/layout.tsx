@@ -11,7 +11,7 @@ const Layout = async ({ children, params }: { children: React.ReactNode; params:
     return (
         <div>
             <ChangeTheme theme={Theme.Green} />
-            <ShopNavbar />
+            <ShopNavbar shop_slug={shop_slug} />
             {children}
             <Footer shop_slug={shop_slug} />
         </div>

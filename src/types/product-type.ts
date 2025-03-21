@@ -9,12 +9,12 @@ export type ProductVariant = {
 };
 
 export type Category = {
-    createdAt: string;
     id: string;
     name: string;
     shopId: string;
-    updatedAt: string;
     keywords: string;
+    updatedAt: string;
+    createdAt: string;
 };
 
 export type Product = {

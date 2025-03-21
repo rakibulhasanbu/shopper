@@ -25,9 +25,7 @@ const ProductCard = ({ product }: { product: Product }) => {
                     </div>
                 </CardContent>
                 <CardFooter className="flex justify-center">
-                    <Button href={`/products/${product.slug}`} className="max-lg:w-full">
-                        Quick View
-                    </Button>
+                    <Button className="max-lg:w-full">Quick View</Button>
                 </CardFooter>
             </Card>
         </Link>

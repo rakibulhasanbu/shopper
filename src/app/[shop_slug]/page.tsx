@@ -4,9 +4,11 @@ import { getProducts } from "@/actions/product-actions";
 import config from "@/config";
 import Banner from "@/features/home/Banner";
 import ProductCard from "@/features/products/ProductCard";
+import { Params } from "@/types";
 
-const Home = async () => {
-    const products = await getProducts();
+const Home = async ({ params }: { params: Params<"shop_slug"> }) => {
+    const { shop_slug } = await params;
+    const products = await getProducts({ shopName: shop_slug });
 
     return (
         <div>

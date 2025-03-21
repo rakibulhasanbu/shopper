@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { getOrderById } from "@/actions/order-actions";
 import EmptyState from "@/features/shared/empty-state";
 import Logo from "@/features/shared/Logo";
-import { SearchParams } from "@/types";
+import { Params, SearchParams } from "@/types";
 import { CheckCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -14,8 +14,9 @@ export const metadata: Metadata = {
     description: "Our representative will contact you very soon",
 };
 
-const Page = async ({ searchParams }: { searchParams: SearchParams<"order"> }) => {
+const Page = async ({ searchParams, params }: { searchParams: SearchParams<"order">; params: Params<"shop_slug"> }) => {
     const { order } = await searchParams;
+    const { shop_slug } = await params;
 
     const orderResponse = await getOrderById(order as string);
     const orderDetails = orderResponse?.data;
@@ -54,7 +55,7 @@ const Page = async ({ searchParams }: { searchParams: SearchParams<"order"> }) =
         <div className="min-h-screen">
             <div className="width py-12 max-sm:px-3">
                 <div className="flex items-center justify-center">
-                    <Logo />
+                    <Logo name={shop_slug.replace(/%20/g, " ")} href={`/${shop_slug}`} />
                 </div>
 
                 <Separator className="my-4 bg-foreground/20 md:mb-8 md:mt-6" />

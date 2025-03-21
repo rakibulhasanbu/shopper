@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Hind_Siliguri, Inter } from "next/font/google";
+import { Noto_Sans_Bengali } from "next/font/google";
 
 import { seoData } from "@/data/metadata";
 
@@ -7,18 +7,11 @@ import "./globals.css";
 
 import { Providers } from "@/providers";
 
-const hindSiliguri = Hind_Siliguri({
+const notoSansBengali = Noto_Sans_Bengali({
     subsets: ["bengali"],
-    weight: ["300", "400", "500", "600", "700"],
-    display: "swap",
-    variable: "--font-siliguri",
-});
-
-const inter = Inter({
-    subsets: ["latin"],
     weight: ["300", "400", "500", "600", "700", "800"],
     display: "swap",
-    variable: "--font-inter",
+    variable: "--font-bengali",
 });
 
 export const metadata: Metadata = seoData;
@@ -29,9 +22,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html className={`${inter.variable} ${hindSiliguri.variable}`} suppressHydrationWarning>
-            {/* <ThirdParties /> */}
-            <body className={`${inter.className} ${hindSiliguri.className} antialiased`}>
+        <html lang="en" className={`${notoSansBengali.variable}`} suppressHydrationWarning>
+            <body className={`${notoSansBengali.className} antialiased`}>
                 <Providers>{children}</Providers>
             </body>
         </html>

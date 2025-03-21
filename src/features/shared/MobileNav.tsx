@@ -14,11 +14,11 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 
-const MobileNav = () => {
+const MobileNav = ({ shop_slug }: { shop_slug: string }) => {
     const navItems = [
-        { label: "হোম", href: "/" },
-        { label: "সকল প্রডাক্ট", href: "/products" },
-        { label: "কার্ট", href: "/cart" },
+        { label: "হোম", href: `/${shop_slug}` },
+        { label: "সকল প্রডাক্ট", href: `/${shop_slug}/products` },
+        { label: "কার্ট", href: `/${shop_slug}/cart` },
     ];
 
     return (
@@ -33,7 +33,7 @@ const MobileNav = () => {
                 </SheetHeader>
                 <div className="flex flex-col items-start pt-6">
                     <SheetClose asChild>
-                        <Logo />
+                        <Logo name={shop_slug.replace(/%20/g, " ")} href={`/${shop_slug}`} />
                     </SheetClose>
                     <ul className="flex flex-col items-start gap-2 pt-4">
                         {navItems.map((item) => (

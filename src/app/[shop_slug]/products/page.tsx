@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { getProducts } from "@/actions/product-actions";
 import ProductCard from "@/features/products/ProductCard";
 import PageTopBar from "@/features/shared/PageTopBar";
+import { Params } from "@/types";
 
 export const metadata: Metadata = {
     title: "সকল প্রডাক্ট | Natural Products Collection",
@@ -21,9 +22,9 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
-const Products = async () => {
-    const products = await getProducts();
-    console.log(products);
+const Products = async ({ params }: { params: Params<"shop_slug"> }) => {
+    const { shop_slug } = await params;
+    const products = await getProducts({ shopName: shop_slug });
 
     return (
         <div>

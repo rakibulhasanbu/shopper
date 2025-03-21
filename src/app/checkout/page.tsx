@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 import BillingDetails from "@/features/checkout/BillingDetails";
 import CheckoutForm from "@/features/checkout/CheckoutForm";
@@ -16,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 const Page = () => {
+    const { shop_slug } = useParams();
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [summary, setSummary] = useState({
         subtotal: 0,
@@ -75,7 +77,10 @@ const Page = () => {
         <CheckoutForm>
             <div className="width py-12 max-sm:px-3 lg:py-16">
                 <div className="flex items-center justify-center">
-                    <Logo />
+                    <Logo
+                        name={typeof shop_slug === "string" ? shop_slug.replace(/%20/g, " ") : ""}
+                        href={`/${shop_slug}`}
+                    />
                 </div>
 
                 <div className="flex items-center justify-center gap-1 pt-6 max-lg:text-sm lg:gap-4 lg:pt-10">

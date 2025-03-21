@@ -1,18 +1,16 @@
 "use server";
 
-import config from "@/config";
-import { PaginatedResponse, ResponseObject } from "@/types";
+import { getQueryString } from "@/lib";
+import { defaultPaginatedData, PaginatedResponse, QueryParams, ResponseObject } from "@/types";
 
-import { Product } from "@/types/product-type";
+import { Category, Product } from "@/types/product-type";
 import { CustomFetch } from "@/lib/CustomFetch";
 
-export const getProducts = async () => {
-    const products = await CustomFetch<PaginatedResponse<Product>>(`/product?shopName=${config.shopName}`, {
-        cache: "no-store",
-    });
+export const getProducts = async (params?: QueryParams) => {
+    const products = await CustomFetch<PaginatedResponse<Product>>(`/product${getQueryString(params)}`);
 
     if (!products?.data) {
-        return { data: [], total: 0, skip: 0, limit: 0 };
+        return defaultPaginatedData;
     }
     return products;
 };
@@ -25,4 +23,14 @@ export const getProductById = async (id: string) => {
 export const getProductBySlug = async (slug: string) => {
     const product = await CustomFetch<ResponseObject<Product>>(`/product/product-details/${slug}`);
     return product;
+};
+
+export const getCategories = async () => {
+    const response = await CustomFetch<PaginatedResponse<Category>>(`/category`);
+
+    if (!response?.success) {
+        return defaultPaginatedData;
+    }
+
+    return response;
 };

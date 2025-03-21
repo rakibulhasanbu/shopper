@@ -21,13 +21,10 @@ export const CustomFetch = async <T>(endpoint: string, options: FetchOptions = {
     };
 
     const response = await fetch(url, options);
+
     if (response.status === 204) return;
 
     const body = await response.json();
 
-    if (response.ok) {
-        return body;
-    } else {
-        throw new Error(JSON.stringify(body));
-    }
+    return body;
 };
