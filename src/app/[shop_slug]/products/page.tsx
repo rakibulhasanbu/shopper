@@ -36,7 +36,9 @@ const Products = async ({ params }: { params: Params<"shop_slug"> }) => {
                 </div>
 
                 <div className="grid min-h-[70dvh] grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-7 xl:grid-cols-4">
-                    {products?.data?.map((product) => <ProductCard key={product.id} product={product} />)}
+                    {products?.data?.map((product) => (
+                        <ProductCard key={product.id} shop_slug={shop_slug} product={product} />
+                    ))}
                 </div>
             </div>
         </div>

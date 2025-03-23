@@ -15,8 +15,9 @@ export type PaginatedResponse<T> = {
     };
 };
 
-export const defaultPaginatedData = { data: [], success: false, meta: { total: 0, page: 0, limit: 0 } };
 export type QueryParams = Record<string, string | number>;
 
 export type Params<T extends string = string> = Promise<{ [K in T]: string }>;
 export type SearchParams<T extends string = string> = Promise<{ [K in T]: string | string[] | undefined }>;
+
+export const defaultPaginatedData = { data: [], success: false, meta: { total: 0, page: 0, limit: 0 } };

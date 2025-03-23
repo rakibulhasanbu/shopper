@@ -12,7 +12,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ shop_slug }: { shop_slug: string }) => {
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [summary, setSummary] = useState({
         subtotal: 0,
@@ -54,7 +54,7 @@ const ShoppingCart = () => {
 
     if (summary.itemCount === 0) {
         return (
-            <Link href="/cart">
+            <Link href={`/${shop_slug}/cart`}>
                 <ShoppingBag className="size-5 cursor-pointer hover:text-primary" />
             </Link>
         );
@@ -106,7 +106,7 @@ const ShoppingCart = () => {
                     </div>
                     <Separator className="my-2 bg-white/20" />
                     <div className="grid w-full grid-cols-2 gap-4 px-4">
-                        <Button href="/cart" className="w-full" disabled={summary.itemCount === 0}>
+                        <Button href={`/${shop_slug}/cart`} className="w-full" disabled={summary.itemCount === 0}>
                             View Cart
                         </Button>
                         <Button href="/checkout" className="w-full" disabled={summary.itemCount === 0}>

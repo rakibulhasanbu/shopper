@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
 
-import { getProductBySlug } from "@/actions/product-actions";
+import { getProductById, getProductBySlug } from "@/actions/product-actions";
 import config from "@/config";
 import ProductVariantSelector from "@/features/products/ProductVariantSelector";
 import ShowPrice from "@/features/products/ShowPrice";
@@ -80,7 +80,7 @@ export const revalidate = 300;
 const Page = async (props: { params: Params<"slug"> }) => {
     const { slug } = await props.params;
 
-    const response = await getProductBySlug(slug);
+    const response = await getProductById(slug);
 
     const product = response?.data;
 

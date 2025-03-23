@@ -14,7 +14,7 @@ const ShopNavbar = ({ shop_slug }: { shop_slug: string }) => {
             <div className="flex w-full items-center justify-between px-4 sm:px-[5%] md:px-[10%] lg:hidden">
                 <MobileNav shop_slug={shop_slug} />
                 <Logo name={shop_slug.replace(/%20/g, " ")} href={`/${shop_slug}`} />
-                <ShoppingCart />
+                <ShoppingCart shop_slug={shop_slug} />
             </div>
 
             <div className="width flex items-center justify-between max-lg:hidden">
@@ -23,7 +23,7 @@ const ShopNavbar = ({ shop_slug }: { shop_slug: string }) => {
                     {navItems.map((item) => (
                         <NavItem key={item.href} label={item.label} href={item.href} />
                     ))}
-                    <ShoppingCart />
+                    <ShoppingCart shop_slug={shop_slug} />
                 </ul>
             </div>
         </nav>

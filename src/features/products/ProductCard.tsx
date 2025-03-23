@@ -7,9 +7,9 @@ import { Product } from "@/types/product-type";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product, shop_slug }: { product: Product; shop_slug: string }) => {
     return (
-        <Link href={`/products/${product.slug}`}>
+        <Link href={`/${shop_slug}/products/${product.id}`}>
             <Card className="overflow-hidden">
                 <CardContent className="p-0 lg:p-0">
                     <Image
