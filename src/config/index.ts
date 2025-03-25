@@ -1,8 +1,6 @@
 const config = {
     clientUrl: "https://www.hattbar.com",
-    serverUrl: "https://shoper-backend-4m3x.onrender.com/api/v1", //process.env.NEXT_PUBLIC_SERVER_URL ||
-    shopName: process.env.NEXT_PUBLIC_SHOP_NAME,
-    shopId: "78167e68-88da-40b0-8f93-b50a7fb9d109", // process.env.NEXT_PUBLIC_SHOP_ID,
+    serverUrl: process.env.NEXT_PUBLIC_SERVER_URL || "",
     isShowStock: false,
     websiteName: "Hattbar",
     isShowImageLogo: true,

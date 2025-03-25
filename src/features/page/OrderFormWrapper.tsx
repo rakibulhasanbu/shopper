@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { makeOrder } from "@/actions/order-actions";
-import config from "@/config";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -75,7 +74,7 @@ const OrderFormWrapper = ({ children }: { children: React.ReactNode }) => {
         }));
 
         const order: Order = {
-            shopId: config.shopId || "",
+            shopId: "",
             orderItems,
             customerName: values.name,
             customerPhoneNumber: values.phone,
